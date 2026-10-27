@@ -1,13 +1,64 @@
-const content=document.getElementById('content');
-const pages={
-home:{title:'স্বাগতম',html:`<div class="card"><h2>ভূমি রেকর্ড ও খতিয়ান সেবা</h2><p>খতিয়ান, Draft/Working Khatian, মৌজা ম্যাপ, Volume Book ও দলিল তল্লাশি সংক্রান্ত তথ্য ও সহায়তা।</p><div class="notice"><b>গুরুত্বপূর্ণ:</b> এটি সরকারি ওয়েবসাইট বা সরকারি প্ল্যাটফর্ম নয়। প্রয়োজনীয় সরকারি ও অন্যান্য লিংক/তথ্য সেবার সুবিধার জন্য সংগ্রহ করে দেওয়া হয়।</div></div><div class="card"><h2>প্রয়োজনীয় তথ্য</h2><p>জেলা, উপজেলা/থানা, মৌজা, JL নম্বর, খতিয়ান নম্বর, দাগ নম্বর ও মালিকের নাম প্রস্তুত রাখুন।</p></div>`},
-khatian:{title:'খতিয়ান সেবা',html:`<div class="card"><h2>খতিয়ান সেবা</h2><p>CS, SA, RS, BS/BRS ও অন্যান্য খতিয়ান সংক্রান্ত তথ্য ও প্রয়োজনীয় সহায়তা।</p><p>তথ্য পাঠাতে নিচের Gmail ব্যবহার করুন।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Khatian%20Service">📧 Gmail-এ তথ্য পাঠান</a></div>`},
-draft:{title:'Draft Khatian',html:`<div class="card"><h2>Draft Khatian</h2><p>Draft Khatian সংক্রান্ত লিংক, তথ্য ও প্রক্রিয়া সম্পর্কে জানতে আপনার রেকর্ডের তথ্য পাঠান।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Draft%20Khatian">📧 তথ্য পাঠান</a></div>`},
-working:{title:'Working Khatian',html:`<div class="card"><h2>Working Khatian</h2><p>Working Khatian সংক্রান্ত সেবা নিতে জেলা, উপজেলা/থানা, মৌজা, JL, খতিয়ান ও দাগের তথ্য পাঠান।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Working%20Khatian">📧 তথ্য পাঠান</a></div>`},
-map:{title:'মৌজা ম্যাপ',html:`<div class="card"><h2>মৌজা ম্যাপ</h2><p>মৌজা ম্যাপের প্রাপ্যতা ও সংগ্রহের বিষয়ে জানতে জেলা, উপজেলা/থানা, মৌজা ও JL নম্বর পাঠান।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Mouza%20Map">📧 তথ্য পাঠান</a></div>`},
-volume:{title:'Volume Book',html:`<div class="card"><h2>Volume Book</h2><p>সম্পূর্ণ মৌজা-ভিত্তিক Volume Book সংগ্রহের বিষয়ে তথ্য ও মূল্য জানতে মৌজার নাম, JL ও উপজেলা/থানা পাঠান।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Volume%20Book">📧 তথ্য পাঠান</a></div>`},
-deed:{title:'দলিল তল্লাশি',html:`<div class="card"><h2>দলিল তল্লাশি</h2><p>দলিল তল্লাশি সংক্রান্ত সেবার জন্য প্রয়োজনীয় তথ্য পাঠান। সরকারি ফি ও সার্ভিস চার্জ কাজভেদে প্রযোজ্য হতে পারে।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Deed%20Search">📧 তথ্য পাঠান</a></div>`},
-contact:{title:'যোগাযোগ',html:`<div class="card"><h2>যোগাযোগ</h2><p>📧 <b>mediashathi3@gmail.com</b></p><p>📞 <b>01980714712</b></p><p>💳 bKash: Send Money</p><p>পেমেন্টের পর লেনদেনের প্রমাণ/স্ক্রিনশট সংরক্ষণ করুন।</p><a class="btn" href="mailto:mediashathi3@gmail.com?subject=Land%20Record%20Service">📧 Gmail খুলুন</a></div>`}
+
+const content = document.getElementById('content');
+
+const emailBody = `জেলা:
+উপজেলা/থানা:
+মৌজার নাম:
+JL নম্বর:
+খতিয়ান নম্বর:
+দাগ নম্বর:
+মালিকের নাম:`;
+
+function emailLink(subject) {
+  return 'https://mail.google.com/mail/?view=cm&fs=1&to=mediashathi3%40gmail.com&su='
+    + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(emailBody);
+}
+
+const pages = {
+  home: {
+    title: 'স্বাগতম',
+    html: `<div class="card"><h2>ভূমি রেকর্ড ও খতিয়ান সেবা</h2><p>খতিয়ান, Draft/Working Khatian, মৌজা ম্যাপ, Volume Book ও দলিল তল্লাশি সংক্রান্ত তথ্য ও সহায়তা।</p><div class="notice"><b>গুরুত্বপূর্ণ:</b> এটি সরকারি ওয়েবসাইট বা সরকারি প্ল্যাটফর্ম নয়। প্রয়োজনীয় সরকারি ও অন্যান্য লিংক/তথ্য সেবার সুবিধার জন্য সংগ্রহ করে দেওয়া হয়।</div></div><div class="card"><h2>প্রয়োজনীয় তথ্য</h2><p>জেলা, উপজেলা/থানা, মৌজা, JL নম্বর, খতিয়ান নম্বর, দাগ নম্বর ও মালিকের নাম প্রস্তুত রাখুন।</p></div>`
+  },
+
+  khatian: {
+    title: 'খতিয়ান সেবা',
+    html: `<div class="card"><h2>খতিয়ান সেবা</h2><p>CS, SA, RS, BS/BRS ও অন্যান্য খতিয়ান সংক্রান্ত তথ্য ও প্রয়োজনীয় সহায়তা।</p><p>তথ্য পাঠাতে নিচের Gmail ব্যবহার করুন।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Khatian Service')}">📧 Gmail-এ তথ্য পাঠান</a></div>`
+  },
+
+  draft: {
+    title: 'Draft Khatian',
+    html: `<div class="card"><h2>Draft Khatian</h2><p>Draft Khatian সংক্রান্ত লিংক, তথ্য ও প্রক্রিয়া সম্পর্কে জানতে আপনার রেকর্ডের তথ্য পাঠান।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Draft Khatian')}">📧 তথ্য পাঠান</a></div>`
+  },
+
+  working: {
+    title: 'Working Khatian',
+    html: `<div class="card"><h2>Working Khatian</h2><p>Working Khatian সংক্রান্ত সেবা নিতে জেলা, উপজেলা/থানা, মৌজা, JL, খতিয়ান ও দাগের তথ্য পাঠান।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Working Khatian')}">📧 তথ্য পাঠান</a></div>`
+  },
+
+  map: {
+    title: 'মৌজা ম্যাপ',
+    html: `<div class="card"><h2>মৌজা ম্যাপ</h2><p>মৌজা ম্যাপের প্রাপ্যতা ও সংগ্রহের বিষয়ে জানতে জেলা, উপজেলা/থানা, মৌজা ও JL নম্বর পাঠান।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Mouza Map')}">📧 তথ্য পাঠান</a></div>`
+  },
+
+  volume: {
+    title: 'Volume Book',
+    html: `<div class="card"><h2>Volume Book</h2><p>সম্পূর্ণ মৌজা-ভিত্তিক Volume Book সংগ্রহের বিষয়ে তথ্য ও মূল্য জানতে মৌজার নাম, JL ও উপজেলা/থানা পাঠান।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Volume Book')}">📧 তথ্য পাঠান</a></div>`
+  },
+
+  deed: {
+    title: 'দলিল তল্লাশি',
+    html: `<div class="card"><h2>দলিল তল্লাশি</h2><p>দলিল তল্লাশি সংক্রান্ত সেবার জন্য প্রয়োজনীয় তথ্য পাঠান। সরকারি ফি ও সার্ভিস চার্জ কাজভেদে প্রযোজ্য হতে পারে।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Deed Search')}">📧 তথ্য পাঠান</a></div>`
+  },
+
+  contact: {
+    title: 'যোগাযোগ',
+    html: `<div class="card"><h2>যোগাযোগ</h2><p>📧 <b>mediashathi3@gmail.com</b></p><p>📞 <b>01980714712</b></p><p>💳 bKash: Send Money</p><p>পেমেন্টের পর লেনদেনের প্রমাণ/স্ক্রিনশট সংরক্ষণ করুন।</p><a class="btn" target="_blank" rel="noopener noreferrer" href="${emailLink('Land Record Service')}">📧 Gmail খুলুন</a></div>`
+  }
 };
-function show(k){content.innerHTML=`<div class="page"><h2>${pages[k].title}</h2>${pages[k].html}</div>`}
+
+function show(k) {
+  content.innerHTML = `<div class="page"><h2>${pages[k].title}</h2>${pages[k].html}</div>`;
+}
+
 show('home');
