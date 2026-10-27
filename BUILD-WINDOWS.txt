@@ -1,0 +1,13 @@
+Windows Desktop EXE বানানোর নিয়ম
+
+এই প্রজেক্ট থেকে Windows .exe বানাতে Node.js লাগবে।
+
+1) Node.js LTS ইনস্টল করুন।
+2) এই ফোল্ডারে PowerShell/Command Prompt খুলুন।
+3) লিখুন: npm install
+4) তারপর লিখুন: npm run build
+5) dist ফোল্ডারের ভিতরে portable .exe তৈরি হবে।
+
+শুধু পরীক্ষা করতে: npm start
+
+নোট: এই ZIP নিজে থেকে .exe নয়; এটি Windows Desktop App-এর source project।

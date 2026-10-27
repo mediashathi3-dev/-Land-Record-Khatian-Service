@@ -1,0 +1,21 @@
+{
+  "name": "land-record-khatian-desktop",
+  "version": "2.0.0",
+  "description": "Land Record & Khatian Service Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "bd.landrecord.khatian",
+    "productName": "Land Record & Khatian Service",
+    "win": {
+      "target": "portable"
+    }
+  }
+}
